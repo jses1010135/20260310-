@@ -8,41 +8,39 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Yes", "NO", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show("您點的是：" + textBox1.Text, "點餐資訊", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
-            if (result == DialogResult.OK)
+            if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("You clicked OK!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("您已取消點餐！", "點餐資訊", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-            else
-            {
-                MessageBox.Show("You clicked Cancel!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            order(textBox1.Text, result);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void order(string food, DialogResult result)
         {
-            DialogResult result = MessageBox.Show("Do you want to continue?", "Confirmation", MessageBoxButtons.CancelTryContinue, MessageBoxIcon.Question);
-            switch (result)
+            switch (textBox1.Text)
             {
-                case DialogResult.Cancel:
-                    MessageBox.Show("You clicked Cancel!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                case "漢堡":
+                    if (result == DialogResult.OK)
+                    {
+                        MessageBox.Show("漢堡賣完了，要不要試試薯條？", "點餐資訊", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     break;
-                case DialogResult.TryAgain:
-                    MessageBox.Show("You clicked Try Again!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                case "":
+                    if (result == DialogResult.OK)
+                    {
+                        MessageBox.Show("請輸入餐點名稱！", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
-                case DialogResult.Continue:
-                    MessageBox.Show("You clicked Continue!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                default:
+                    MessageBox.Show("好的，正在為您準備" + textBox1.Text, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -29,49 +29,54 @@
         private void InitializeComponent()
         {
             button1 = new Button();
-            button2 = new Button();
             label1 = new Label();
+            textBox1 = new TextBox();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(204, 204);
+            button1.FlatStyle = FlatStyle.System;
+            button1.Font = new Font("Segoe UI", 22F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(482, 626);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(204, 110);
             button1.TabIndex = 0;
-            button1.Text = "button1";
+            button1.Text = "點餐";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(519, 204);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(359, 139);
+            label1.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(231, 9);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(90, 37);
+            label1.Size = new Size(724, 96);
             label1.TabIndex = 2;
-            label1.Text = "label1";
-            label1.Click += label1_Click;
+            label1.Text = "請問你今天想吃什麼";
+            // 
+            // textBox1
+            // 
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(13, 110);
+            textBox1.Margin = new Padding(4, 5, 4, 5);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(1117, 506);
+            textBox1.TabIndex = 3;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1143, 750);
+            Controls.Add(textBox1);
             Controls.Add(label1);
-            Controls.Add(button2);
             Controls.Add(button1);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -81,7 +86,7 @@
         #endregion
 
         private Button button1;
-        private Button button2;
         private Label label1;
+        private TextBox textBox1;
     }
 }
